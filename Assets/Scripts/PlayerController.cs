@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float jumpForce = 200.0f;
 
     private float horizontalInput;
-    private float xBound = 25.0f;
+    private float xBound = 13.45f;
 
     private bool inputType;
     public bool isGrounded;
@@ -58,13 +58,13 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.position.x < -xBound)
                 transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
-            if (transform.position.x > -1)
-                transform.position = new Vector3(-1, transform.position.y, transform.position.z);
+            if (transform.position.x > -0.75F)
+                transform.position = new Vector3(-0.75F, transform.position.y, transform.position.z);
         }
         else 
         {
-            if (transform.position.x < 1) 
-                transform.position = new Vector3(1, transform.position.y, transform.position.z);
+            if (transform.position.x < 0.75F) 
+                transform.position = new Vector3(0.75F, transform.position.y, transform.position.z);
             if (transform.position.x > xBound)
                 transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
         }
