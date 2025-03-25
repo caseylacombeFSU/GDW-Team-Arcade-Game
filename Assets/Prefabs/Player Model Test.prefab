@@ -177,6 +177,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4728071830265999633}
   - component: {fileID: 6569366638855500309}
+  - component: {fileID: 5325539799387718371}
+  - component: {fileID: -5416347250601855146}
   m_Layer: 0
   m_Name: Player Model Test
   m_TagString: Untagged
@@ -194,7 +196,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.348137, y: -2.8925235, z: -0.056342237}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8585976847791442072}
@@ -227,6 +229,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 4.3684425, z: 1.9858085}
   m_Center: {x: 0, y: 1.6842213, z: -0.004555881}
+--- !u!114 &5325539799387718371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080840853860192703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6cb7c864e0e1244a2e91578b8c27e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &-5416347250601855146
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080840853860192703}
+  serializedVersion: 4
+  m_Mass: 40
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1 &3231124920560714747
 GameObject:
   m_ObjectHideFlags: 0
