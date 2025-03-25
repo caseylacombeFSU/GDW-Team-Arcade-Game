@@ -1,10 +1,13 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
+    public TextMeshProUGUI playerHealth;
+    private GameManager gameManager;
 
     private float speed = 5.0f;
     private float jumpForce = 200.0f;
@@ -14,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private bool inputType;
     public bool isGrounded;
+
+    private int health = 2;
     
 
     // Start is called before the first frame update
@@ -24,6 +29,10 @@ public class PlayerController : MonoBehaviour
 
         Cursor.visible = false;
         isGrounded = true;
+        
+        playerHealth.text = "♥♥";
+
+        //gameManager = GameObject.Find("Game Manager").getComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -102,7 +111,23 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+
+        
     }
+
+    /*
+     * if (other.tag == "Hazard" && health > 1)
+        {
+            playerHealth.text = "♥";
+            health--;
+        }
+        else if (other.tag == "Hazard" && health == 1)
+        {
+            gameManager.GameOver();
+        }
+     */
+
+
 
 
 }
