@@ -47,13 +47,13 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.position.x < -xBound)
                 transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
-            if (transform.position.x > 0)
-                transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            if (transform.position.x > -1)
+                transform.position = new Vector3(-1, transform.position.y, transform.position.z);
         }
         else 
         {
-            if (transform.position.x < 0) 
-                transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            if (transform.position.x < 1) 
+                transform.position = new Vector3(1, transform.position.y, transform.position.z);
             if (transform.position.x > xBound)
                 transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
         }
