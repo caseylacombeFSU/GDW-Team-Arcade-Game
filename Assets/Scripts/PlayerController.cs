@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float xBound = 25.0f;
 
     private bool inputType;
+    public bool isGrounded;
     
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         inputType = this.name == "Player 1";
 
         Cursor.visible = false;
+        isGrounded = true;
     }
 
     // Update is called once per frame
@@ -65,16 +67,18 @@ public class PlayerController : MonoBehaviour
     {
         if(inputType)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isGrounded = false;
             }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
+            if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4) && isGrounded)
             {
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isGrounded = false;
             }
         }
     }
@@ -94,5 +98,11 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
+    }
+
 
 }
