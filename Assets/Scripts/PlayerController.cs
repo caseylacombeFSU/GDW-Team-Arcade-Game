@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         inputType = this.name == "Player 1";
+
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -31,6 +33,11 @@ public class PlayerController : MonoBehaviour
         CheckJump();
 
         CheckPlayerPosition();
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
     }
 
