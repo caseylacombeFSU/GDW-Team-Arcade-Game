@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    //public Button startGameButton;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +16,12 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Main Level");
-    }
+    
 
 }
