@@ -25,7 +25,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void CameraPosition()
     {
-        if (player.transform.position.y > 6f)
+        if (player.transform.position.y > cameraYBound)
         {
             transform.position = new Vector3(transform.position.x, player.transform.position.y, player.transform.position.z) - offset;
 
