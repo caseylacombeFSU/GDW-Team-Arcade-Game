@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         
         playerHealth.text = "♥♥";
 
-        //gameManager = GameObject.Find("Game Manager").getComponent<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -115,8 +115,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    /*
-     * if (other.tag == "Hazard" && health > 1)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Hazard" && health > 1)
         {
             playerHealth.text = "♥";
             health--;
@@ -125,7 +126,9 @@ public class PlayerController : MonoBehaviour
         {
             gameManager.GameOver();
         }
-     */
+    }
+
+   
 
 
 
