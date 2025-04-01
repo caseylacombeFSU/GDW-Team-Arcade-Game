@@ -43,11 +43,13 @@ public class PlayerController : MonoBehaviour
         // Sets the players health in the UI
         playerHealth.text = "♥♥";
 
-        //
+        // Initializes the game manager object
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
+    // Checks if the player jumps, moves, and is in bounds each frame
+    // Checks if the quit button (esc) is hit and checks if the game complete bool is true in the game manager
     void Update()
     {
 
@@ -57,11 +59,13 @@ public class PlayerController : MonoBehaviour
 
         CheckPlayerPosition();
 
+        // Quits the game if ESC is hit
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Application.Quit();
         }
 
+        // If gameComplete is true then movement and jumping is stopped for the player
         if (gameManager.gameComplete)
         {
             isGrounded = false;
@@ -70,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Method to check the players position to keep them in bounds
     private void CheckPlayerPosition()
     {
         if (inputType)
@@ -90,6 +95,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Method to check if a player has hit the jump key and to make them jump if so
     private void CheckJump()
     {
         if (inputType)
@@ -110,6 +116,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Checks if the cooresponding player has inputted movement
     private void CheckHorizontalMovement()
     {
         if (inputType)
@@ -126,12 +133,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Checks if the player has collided with the ground or a hazard object
     private void OnCollisionEnter(Collision collision)
     {
+        // If ground then isGrounded is set to true so that the player can jump again
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
+        // Else if its a hazard it checks the players current health and decrements it accordingly or calls the gameOver method in the game manager if their health reaches 0
         else if (collision.gameObject.CompareTag("Hazard") && health > 1)
         {
             playerHealth.text = "♥";
