@@ -11,7 +11,7 @@ public class ButtonController : MonoBehaviour
     //game manager object to determine the win condition
     private GameManager gameManager;
     //vector3 for the door movement
-    private Vector3 movement = new Vector3(0, 3.5f, 0);
+    private Vector3 movement = new Vector3(0, 0, 20);
 
     // Start is called before the first frame update
     // Initializes the game manager object
