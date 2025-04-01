@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    //Assigned a player object to follow
     public GameObject player;
+
+    //camera bounds
     private float cameraXBound = 3.72f;
     private float cameraYBound = 9f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
+    // Updates the cameras position each frame
     void Update()
     {
         CameraPosition();
     }
 
 
-
+    // Method to update the cameras position
+    // X position ends up being locked
+    // Y position follows the player after a certain height
     private void CameraPosition()
     {
         if (player.transform.position.y > cameraYBound)

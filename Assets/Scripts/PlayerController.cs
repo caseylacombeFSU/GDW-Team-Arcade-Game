@@ -5,33 +5,45 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    // Rigidbody for the player and a text mesh UI for the player's health
     private Rigidbody playerRb;
     public TextMeshProUGUI playerHealth;
+    
+    // GameManager to control game end conditions
     private GameManager gameManager;
 
+    // Speed and jump force for the player
     private float speed = 5.0f;
     private float jumpForce = 400.0f;
 
+    // User input for the horizontal movement of the player and an X bound for their movement
     private float horizontalInput;
     private float xBound = 13.45f;
 
+    // bool to determine input type of the player and a bool to check if the player is grounded so that they can jump again
     private bool inputType;
     public bool isGrounded;
 
+    // Int to track the players health
     public int health = 2;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        // Initializes the players rigidbody
+        // Initializes the input type, true if player 1 and false if player 2
         playerRb = GetComponent<Rigidbody>();
         inputType = this.name == "Player 1";
 
+        // Disables the cursor and intializes isGrounded as true
         Cursor.visible = false;
         isGrounded = true;
 
+        // Sets the players health in the UI
         playerHealth.text = "♥♥";
 
+        //
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
