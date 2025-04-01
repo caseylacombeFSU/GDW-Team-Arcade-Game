@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 offset = new Vector3(0, 0, 10);
     private float cameraXBound = 3.72f;
-    private float cameraYBound = 6f;
+    private float cameraYBound = 9f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,7 @@ public class PlayerCamera : MonoBehaviour
     {
         if (player.transform.position.y > cameraYBound)
         {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y, player.transform.position.z) - offset;
+            transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
 
             if (this.name == "Player 1 Camera")
             {
