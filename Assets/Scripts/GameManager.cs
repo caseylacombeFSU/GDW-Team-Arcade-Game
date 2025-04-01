@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject gameOver;
+    public GameObject gameWon;
+
+    private int winCon = 0;
+    public bool gameComplete = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +26,33 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
+
+        if (winCon == 2)
+        {
+            GameWon();
+        }
     }
 
     public void GameOver()
     {
         gameOver.gameObject.SetActive(true);
+        gameComplete = true;
+    }
+
+    public void GameWon()
+    {
+        gameWon.gameObject.SetActive(true);
+        gameComplete = true;
+    }
+
+    public void WinConIncrement()
+    {
+        winCon++;
+    }
+
+    public void WinConDecrement()
+    {
+        winCon--;
     }
 
 }

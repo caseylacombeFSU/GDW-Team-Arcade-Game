@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
             Application.Quit();
         }
 
+        if (gameManager.gameComplete)
+        {
+            isGrounded = false;
+            speed = 0;
+        }
+
     }
 
     private void CheckPlayerPosition()
@@ -118,13 +124,13 @@ public class PlayerController : MonoBehaviour
         {
             playerHealth.text = "♥";
             health--;
+            Destroy(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Hazard") && health < 2)
         {
-            isGrounded = false;
             playerHealth.text = "";
             health--;
-            speed = 0;
+            Destroy(collision.gameObject);
             gameManager.GameOver();
             
         }
